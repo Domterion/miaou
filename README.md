@@ -10,9 +10,11 @@ We dont support selfhosting and the tooling we provide isn't guaranteed to be up
 Miaou... that being said here's how you can probably selfhost Miaou
 
 Requirements:
-    - Podman
-    - Atleast two braincells
-    - Linux because yes
+- Podman
+
+- Atleast two braincells
+
+- Linux because yes
 
 To start the database server use:
 ```
