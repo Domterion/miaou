@@ -56,6 +56,7 @@ export class TagCreateCommand extends BaseCommandOption {
 				},
 			});
 		} catch (e) {
+			console.log(e);
 			errored = true;
 		}
 
@@ -70,3 +71,4 @@ export class TagCreateCommand extends BaseCommandOption {
 		return context.editOrRespond(`Created ${args.name} tag.`);
 	}
 }
+
