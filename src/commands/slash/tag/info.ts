@@ -1,6 +1,6 @@
 import { Tags } from "@prisma/client";
 
-import { Collections, Interaction } from "detritus-client";
+import { Interaction } from "detritus-client";
 import { MessageFlags } from "detritus-client/lib/constants";
 import { Embed } from "detritus-client/lib/utils";
 import prisma from "../../../prisma";

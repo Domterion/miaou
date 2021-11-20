@@ -6,15 +6,14 @@
 
 ### Selfhosting
 
-We dont support selfhosting and the tooling we provide isn't guaranteed to be updated. Please use our official instance if you'd like to use
-Miaou... that being said here's how you can probably selfhost Miaou
+We dont support selfhosting and the tooling we provide isn't guaranteed to be updated. Please use our official instance if you'd like to use Miaou. Basic instructions are provided below but are not guaranteed to be up to date. 
 
 Requirements:
 - Podman
 
 - Atleast two braincells
 
-- Linux because yes
+- Linux
 
 To start the database server use:
 ```
