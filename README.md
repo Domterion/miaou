@@ -28,5 +28,5 @@ $ podman build -t miaou:latest .
 
 To run Miaou use:
 ```
-$ podman run miaou:latest
+$ podman run --name miaou miaou:latest
 ```
