@@ -18,7 +18,7 @@ Requirements:
 
 To start the database server use:
 ```
-$ podman run --name postgres -e POSTGRES_DB=miaou -e POSTGRES_PASSWORD=postgres -p 5432:5432 docker.io/postgres:13-alpine
+$ podman run --name miaou_postgres -e POSTGRES_DB=miaou -e POSTGRES_PASSWORD=postgres -p 5432:5432 -v $(pwd)/postgresql_data:/var/lib/postgresql/data:z docker.io/postgres:13-alpine
 ```
 
 To build Miaou main image use:
