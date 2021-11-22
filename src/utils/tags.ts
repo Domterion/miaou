@@ -1,3 +1,4 @@
+import { Tags as DbTag } from "@prisma/client";
 import prisma from "../prisma";
 
 export default class Tags {
@@ -13,7 +14,7 @@ export default class Tags {
 		content: string,
 		guild: string,
 		owner: string
-	): Promise<Tags | null> {
+	): Promise<DbTag | null> {
 		return await prisma.tags.create({
 			data: {
 				name,
@@ -34,7 +35,7 @@ export default class Tags {
 		name: string,
 		guild: string,
 		owner: string
-	): Promise<Tags | null> {
+	): Promise<DbTag | null> {
 		return await prisma.tags.findFirst({
 			where: {
 				name,
