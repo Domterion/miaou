@@ -1,5 +1,9 @@
 import { Interaction } from "detritus-client";
-import { ApplicationCommandOptionTypes, MessageFlags, Permissions } from "detritus-client/lib/constants";
+import {
+	ApplicationCommandOptionTypes,
+	MessageFlags,
+	Permissions,
+} from "detritus-client/lib/constants";
 import { Role } from "detritus-client/lib/structures";
 import prisma from "../../../prisma";
 
@@ -7,14 +11,14 @@ import { BaseCommandOption } from "../../basecommand";
 
 export interface CommandArgs {
 	name: string;
-	role: Role
+	role: Role;
 }
 
 export class IAmAddCommand extends BaseCommandOption {
 	description = "Create a new iam role";
 	name = "create";
-    // TODO: Figure out permission checking with Detritus
-    // permissions = [Permissions.MANAGE_GUILD];
+	// TODO: Figure out permission checking with Detritus
+	// permissions = [Permissions.MANAGE_GUILD];
 
 	constructor() {
 		super({
@@ -27,7 +31,7 @@ export class IAmAddCommand extends BaseCommandOption {
 				{
 					name: "role",
 					description: "The role for the iam role",
-                    type: ApplicationCommandOptionTypes.ROLE,
+					type: ApplicationCommandOptionTypes.ROLE,
 					required: true,
 				},
 			],
@@ -35,8 +39,7 @@ export class IAmAddCommand extends BaseCommandOption {
 	}
 
 	async run(context: Interaction.InteractionContext, args: CommandArgs) {
-        console.log(args.role);
+		console.log(args.role);
 		return context.editOrRespond(`Created ${args.name} iam role.`);
 	}
 }
-

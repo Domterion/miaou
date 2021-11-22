@@ -44,4 +44,16 @@ export default class Tags {
 			},
 		});
 	}
+
+	/**
+	 * Delete a tag by id
+	 * @param id The id of the tag to delete
+	 */
+	static async deleteById(id: bigint) {
+		await prisma.tags.delete({
+			where: {
+				id,
+			},
+		});
+	}
 }

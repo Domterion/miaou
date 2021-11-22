@@ -14,9 +14,7 @@ export default class IAmGroupCommand extends BaseSlashCommand {
 
 	constructor() {
 		super({
-			options: [
-                new IAmAddCommand()
-			],
+			options: [new IAmAddCommand()],
 		});
 	}
 }
