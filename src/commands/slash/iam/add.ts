@@ -1,11 +1,6 @@
 import { Interaction } from "detritus-client";
-import {
-	ApplicationCommandOptionTypes,
-	MessageFlags,
-	Permissions,
-} from "detritus-client/lib/constants";
+import { ApplicationCommandOptionTypes } from "detritus-client/lib/constants";
 import { Role } from "detritus-client/lib/structures";
-import prisma from "../../../prisma";
 
 import { BaseCommandOption } from "../../basecommand";
 

@@ -1,4 +1,3 @@
-import { Collections } from "detritus-client";
 import { BaseSlashCommand } from "../../basecommand";
 
 import { TagCreateCommand } from "./create";

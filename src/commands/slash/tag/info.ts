@@ -1,9 +1,9 @@
-import { Tags } from "@prisma/client";
+import { Tags as DbTag } from "@prisma/client";
 
 import { Interaction } from "detritus-client";
 import { MessageFlags } from "detritus-client/lib/constants";
 import { Embed } from "detritus-client/lib/utils";
-import prisma from "../../../prisma";
+import Tags from "../../../utils/tags";
 import { BaseCommandOption } from "../../basecommand";
 
 export interface CommandArgs {
@@ -28,15 +28,14 @@ export class TagInfoCommand extends BaseCommandOption {
 
 	async run(context: Interaction.InteractionContext, args: CommandArgs) {
 		let errored = false;
-		let tag: Tags | null = null;
+		let tag: DbTag | null = null;
 
 		try {
-			tag = await prisma.tags.findFirst({
-				where: {
-					name: args.name,
-					guild: context.guildId as string,
-				},
-			});
+			tag = await Tags.getByName(
+				args.name,
+				context.guildId as string,
+				context.userId
+			);
 		} catch (e) {
 			errored = true;
 		}

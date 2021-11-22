@@ -56,4 +56,18 @@ export default class Tags {
 			},
 		});
 	}
+
+	/**
+	 * Update a tag by id
+	 * @param id The id of the tag to update
+	 * @param data The args to update with
+	 */
+	static async updateById(id: bigint, data: Partial<DbTag>) {
+		await prisma.tags.update({
+			where: {
+				id,
+			},
+			data,
+		});
+	}
 }

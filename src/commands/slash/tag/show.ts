@@ -1,11 +1,10 @@
 import { Tags as DbTag } from "@prisma/client";
-import { Collections, Interaction } from "detritus-client";
+import { Interaction } from "detritus-client";
 import {
 	InteractionCallbackTypes,
 	MessageFlags,
 } from "detritus-client/lib/constants";
 import { ComponentContext, Components } from "detritus-client/lib/utils";
-import prisma from "../../../prisma";
 import Tags from "../../../utils/tags";
 import { BaseCommandOption } from "../../basecommand";
 
@@ -57,13 +56,8 @@ export class TagShowCommand extends BaseCommandOption {
 			});
 		}
 
-		await prisma.tags.update({
-			where: {
-				id: tag!.id,
-			},
-			data: {
-				uses: tag!.uses + 1,
-			},
+		await Tags.updateById(tag!.id, {
+			uses: tag!.uses + 1,
 		});
 
 		const components = new Components();
@@ -94,13 +88,8 @@ export class TagShowCommand extends BaseCommandOption {
 					);
 				}
 
-				await prisma.tags.update({
-					where: {
-						id: tag!.id,
-					},
-					data: {
-						updoots: tag!.updoots + 1,
-					},
+				await Tags.updateById(tag!.id, {
+					updoots: tag!.updoots + 1,
 				});
 
 				return ctx.respond(

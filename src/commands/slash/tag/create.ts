@@ -1,6 +1,5 @@
-import { Interaction, Utils } from "detritus-client";
+import { Interaction } from "detritus-client";
 import { MessageFlags } from "detritus-client/lib/constants";
-import prisma from "../../../prisma";
 import Tags from "../../../utils/tags";
 
 import { BaseCommandOption } from "../../basecommand";

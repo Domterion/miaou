@@ -1,4 +1,4 @@
-import { Constants, Interaction, Structures, Utils } from "detritus-client";
+import { Constants, Interaction, Utils } from "detritus-client";
 import { Member, User } from "detritus-client/lib/structures";
 const { ApplicationCommandOptionTypes } = Constants;
 const { Embed } = Utils;
