@@ -13,7 +13,6 @@ export interface CommandArgs {
 export default class TagGroupCommand extends BaseSlashCommand {
 	description = ".";
 	name = "tag";
-	guildIds = new Collections.BaseSet<string>(["897619857187676210"]);
 	disableDm = true;
 
 	constructor() {

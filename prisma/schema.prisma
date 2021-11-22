@@ -22,3 +22,10 @@ model Tags {
 
         @@index([id])
 }
+
+model IAmRoles {
+        id String @id
+        role String
+        guild String
+        name String
+}

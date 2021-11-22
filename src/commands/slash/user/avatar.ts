@@ -1,11 +1,12 @@
 import { Constants, Interaction, Structures, Utils } from "detritus-client";
+import { Member, User } from "detritus-client/lib/structures";
 const { ApplicationCommandOptionTypes } = Constants;
 const { Embed } = Utils;
 
 import { BaseCommandOption } from "../../basecommand";
 
 export interface CommandArgs {
-	user: Structures.Member | Structures.User;
+	user: Member | User;
 }
 
 export class AvatarCommand extends BaseCommandOption {

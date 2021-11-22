@@ -12,6 +12,16 @@ CREATE TABLE "Tags" (
     CONSTRAINT "Tags_pkey" PRIMARY KEY ("id")
 );
 
+-- CreateTable
+CREATE TABLE "IAmRoles" (
+    "id" TEXT NOT NULL,
+    "role" TEXT NOT NULL,
+    "guild" TEXT NOT NULL,
+    "name" TEXT NOT NULL,
+
+    CONSTRAINT "IAmRoles_pkey" PRIMARY KEY ("id")
+);
+
 -- CreateIndex
 CREATE UNIQUE INDEX "Tags_name_key" ON "Tags"("name");
 

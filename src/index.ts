@@ -21,5 +21,6 @@ interactionClient.addMultipleIn("./commands");
 	: TypeScript  : v${ts.version}
 	: NodeJS      : ${process.version}	
 	: Commit Hash : ${commit_hash}
+	: Env         : ${process.env.ENV}
 `)
 })();
