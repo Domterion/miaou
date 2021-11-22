@@ -1,6 +1,7 @@
-import { Interaction } from "detritus-client";
+import { Interaction, Utils } from "detritus-client";
 import { MessageFlags } from "detritus-client/lib/constants";
 import prisma from "../../../prisma";
+import Tags from "../../../utils/tags";
 
 import { BaseCommandOption } from "../../basecommand";
 
@@ -47,14 +48,12 @@ export class TagCreateCommand extends BaseCommandOption {
 
 		let errored = false;
 		try {
-			await prisma.tags.create({
-				data: {
-					name: args.name,
-					content: args.content,
-					guild: context.guildId as string,
-					owner: context.member?.id as string,
-				},
-			});
+			await Tags.create(
+				args.name,
+				args.content,
+				context.guildId as string,
+				context.userId
+			);
 		} catch (e) {
 			console.log(e);
 			errored = true;
@@ -71,4 +70,3 @@ export class TagCreateCommand extends BaseCommandOption {
 		return context.editOrRespond(`Created ${args.name} tag.`);
 	}
 }
-
