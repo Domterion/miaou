@@ -54,7 +54,6 @@ export class TagCreateCommand extends BaseCommandOption {
 				context.userId
 			);
 		} catch (e) {
-			console.log(e);
 			errored = true;
 		}
 

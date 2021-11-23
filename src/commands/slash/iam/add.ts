@@ -1,5 +1,8 @@
 import { Interaction } from "detritus-client";
-import { ApplicationCommandOptionTypes, Permissions } from "detritus-client/lib/constants";
+import {
+	ApplicationCommandOptionTypes,
+	Permissions,
+} from "detritus-client/lib/constants";
 import { Role } from "detritus-client/lib/structures";
 
 import { BaseCommandOption } from "../../basecommand";

@@ -49,7 +49,7 @@ export default class Tags {
 	 * Delete a tag by id
 	 * @param id The id of the tag to delete
 	 */
-	static async deleteById(id: bigint) {
+	static async deleteById(id: bigint): Promise<void> {
 		await prisma.tag.delete({
 			where: {
 				id,
@@ -62,7 +62,7 @@ export default class Tags {
 	 * @param id The id of the tag to update
 	 * @param data The args to update with
 	 */
-	static async updateById(id: bigint, data: Partial<Tag>) {
+	static async updateById(id: bigint, data: Partial<Tag>): Promise<void> {
 		await prisma.tag.update({
 			where: {
 				id,
