@@ -10,7 +10,7 @@ datasource db {
         url      = env("DATABASE_URL")
 }
 
-model Tags {
+model Tag {
         id BigInt @id @default(autoincrement())
         guild String
         owner String
@@ -23,7 +23,7 @@ model Tags {
         @@index([id])
 }
 
-model IAmRoles {
+model IAmRole {
         id String @id
         role String
         guild String

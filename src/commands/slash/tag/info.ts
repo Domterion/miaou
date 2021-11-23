@@ -1,4 +1,4 @@
-import { Tags as DbTag } from "@prisma/client";
+import { Tag } from "@prisma/client";
 
 import { Interaction } from "detritus-client";
 import { MessageFlags } from "detritus-client/lib/constants";
@@ -28,7 +28,7 @@ export class TagInfoCommand extends BaseCommandOption {
 
 	async run(context: Interaction.InteractionContext, args: CommandArgs) {
 		let errored = false;
-		let tag: DbTag | null = null;
+		let tag: Tag | null = null;
 
 		try {
 			tag = await Tags.getByName(

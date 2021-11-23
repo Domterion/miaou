@@ -1,4 +1,4 @@
-import { Tags as DbTag } from "@prisma/client";
+import { Tag } from "@prisma/client";
 import { Interaction } from "detritus-client";
 import {
 	InteractionCallbackTypes,
@@ -30,7 +30,7 @@ export class TagShowCommand extends BaseCommandOption {
 
 	async run(context: Interaction.InteractionContext, args: CommandArgs) {
 		let errored = false;
-		let tag: DbTag | null = null;
+		let tag: Tag | null = null;
 
 		try {
 			tag = await Tags.getByName(

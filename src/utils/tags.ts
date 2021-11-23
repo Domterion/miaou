@@ -1,4 +1,4 @@
-import { Tags as DbTag } from "@prisma/client";
+import { Tag } from "@prisma/client";
 import prisma from "../prisma";
 
 export default class Tags {
@@ -14,8 +14,8 @@ export default class Tags {
 		content: string,
 		guild: string,
 		owner: string
-	): Promise<DbTag | null> {
-		return await prisma.tags.create({
+	): Promise<Tag | null> {
+		return await prisma.tag.create({
 			data: {
 				name,
 				content,
@@ -35,8 +35,8 @@ export default class Tags {
 		name: string,
 		guild: string,
 		owner: string
-	): Promise<DbTag | null> {
-		return await prisma.tags.findFirst({
+	): Promise<Tag | null> {
+		return await prisma.tag.findFirst({
 			where: {
 				name,
 				guild,
@@ -50,7 +50,7 @@ export default class Tags {
 	 * @param id The id of the tag to delete
 	 */
 	static async deleteById(id: bigint) {
-		await prisma.tags.delete({
+		await prisma.tag.delete({
 			where: {
 				id,
 			},
@@ -62,8 +62,8 @@ export default class Tags {
 	 * @param id The id of the tag to update
 	 * @param data The args to update with
 	 */
-	static async updateById(id: bigint, data: Partial<DbTag>) {
-		await prisma.tags.update({
+	static async updateById(id: bigint, data: Partial<Tag>) {
+		await prisma.tag.update({
 			where: {
 				id,
 			},

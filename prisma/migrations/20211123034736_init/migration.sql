@@ -1,5 +1,5 @@
 -- CreateTable
-CREATE TABLE "Tags" (
+CREATE TABLE "Tag" (
     "id" BIGSERIAL NOT NULL,
     "guild" TEXT NOT NULL,
     "owner" TEXT NOT NULL,
@@ -9,21 +9,21 @@ CREATE TABLE "Tags" (
     "updoots" INTEGER NOT NULL DEFAULT 0,
     "creation" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
-    CONSTRAINT "Tags_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "Tag_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
-CREATE TABLE "IAmRoles" (
+CREATE TABLE "IAmRole" (
     "id" TEXT NOT NULL,
     "role" TEXT NOT NULL,
     "guild" TEXT NOT NULL,
     "name" TEXT NOT NULL,
 
-    CONSTRAINT "IAmRoles_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "IAmRole_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateIndex
-CREATE UNIQUE INDEX "Tags_name_key" ON "Tags"("name");
+CREATE UNIQUE INDEX "Tag_name_key" ON "Tag"("name");
 
 -- CreateIndex
-CREATE INDEX "Tags_id_idx" ON "Tags"("id");
+CREATE INDEX "Tag_id_idx" ON "Tag"("id");
