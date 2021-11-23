@@ -1,5 +1,7 @@
 import { Constants, Interaction, Structures, Utils } from "detritus-client";
+import { Permissions } from "detritus-client/lib/constants";
 import { FailedPermissions } from "detritus-client/lib/interaction";
+import { DiscordPermissions } from "../constants";
 const { ApplicationCommandTypes, ApplicationCommandOptionTypes, MessageFlags } =
 	Constants;
 const { Embed, Markup } = Utils;
@@ -35,12 +37,22 @@ export class BaseInteractionCommand<
 
 	onPermissionsFail(
 		context: Interaction.InteractionContext,
-		permissions: FailedPermissions
+		failed: FailedPermissions
 	) {
-		// TODO: This should be more verbose and tell the user which permissions are missing
+		const permissions: Array<string> = [];
+
+		for (const permission of failed) {
+			const key = String(permission);
+			if (key in DiscordPermissions) {
+				const text = DiscordPermissions[key];
+				permissions.push(text);
+			} else {
+				permissions.push(`Unknown Permission${key}`);
+			}
+		}
 
 		return context.editOrRespond({
-			content: "Missing permissions...",
+			content: `Missing permissions: ${permissions.join(", ")}`,
 			flags: MessageFlags.EPHEMERAL,
 		});
 	}

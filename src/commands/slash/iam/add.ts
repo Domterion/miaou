@@ -23,7 +23,8 @@ export class IAmAddCommand extends BaseCommandOption {
 			options: [
 				{
 					name: "name",
-					description: "The name of the iam role, used when users self add the role.",
+					description:
+						"The name of the iam role, used when users self add the role.",
 					required: true,
 				},
 				{
