@@ -3,6 +3,7 @@ import {
 	ApplicationCommandOptionTypes,
 	Permissions,
 } from "detritus-client/lib/constants";
+import { FailedPermissions } from "detritus-client/lib/interaction";
 import { Role } from "detritus-client/lib/structures";
 
 import { BaseCommandOption } from "../../basecommand";
@@ -15,8 +16,7 @@ export interface CommandArgs {
 export class IAmAddCommand extends BaseCommandOption {
 	description = "Create a new iam role";
 	name = "create";
-	// TODO: Figure out permission checking with Detritus
-	//permissions = [Permissions.MANAGE_GUILD];
+	permissions = [Permissions.MANAGE_GUILD];
 
 	constructor() {
 		super({

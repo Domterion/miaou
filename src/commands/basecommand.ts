@@ -1,4 +1,5 @@
 import { Constants, Interaction, Structures, Utils } from "detritus-client";
+import { FailedPermissions } from "detritus-client/lib/interaction";
 const { ApplicationCommandTypes, ApplicationCommandOptionTypes, MessageFlags } =
 	Constants;
 const { Embed, Markup } = Utils;
@@ -28,6 +29,18 @@ export class BaseInteractionCommand<
 
 		return context.editOrRespond({
 			embed,
+			flags: MessageFlags.EPHEMERAL,
+		});
+	}
+
+	onPermissionsFail(
+		context: Interaction.InteractionContext,
+		permissions: FailedPermissions
+	) {
+		// TODO: This should be more verbose and tell the user which permissions are missing
+
+		return context.editOrRespond({
+			content: "Missing permissions...",
 			flags: MessageFlags.EPHEMERAL,
 		});
 	}
