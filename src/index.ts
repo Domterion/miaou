@@ -15,7 +15,7 @@ interactionClient.addMultipleIn("./commands");
 		encoding: "utf8",
 	}).trim();
 
-	console.log(`Bot started~
+	console.log(`Bot started 🚀
 	Bot:
 	: Shard Count : ${client.shardCount}
 

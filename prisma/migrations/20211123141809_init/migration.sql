@@ -14,7 +14,7 @@ CREATE TABLE "Tag" (
 
 -- CreateTable
 CREATE TABLE "IAmRole" (
-    "id" TEXT NOT NULL,
+    "id" BIGSERIAL NOT NULL,
     "role" TEXT NOT NULL,
     "guild" TEXT NOT NULL,
     "name" TEXT NOT NULL,

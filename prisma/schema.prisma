@@ -24,7 +24,7 @@ model Tag {
 }
 
 model IAmRole {
-        id String @id
+        id BigInt @id @default(autoincrement())
         role String
         guild String
         name String
