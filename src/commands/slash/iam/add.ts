@@ -1,10 +1,12 @@
 import { Interaction } from "detritus-client";
 import {
 	ApplicationCommandOptionTypes,
+	MessageFlags,
 	Permissions,
 } from "detritus-client/lib/constants";
 import { FailedPermissions } from "detritus-client/lib/interaction";
 import { Role } from "detritus-client/lib/structures";
+import IAmRoles from "../../../utils/iamroles";
 
 import { BaseCommandOption } from "../../basecommand";
 
@@ -38,7 +40,40 @@ export class IAmAddCommand extends BaseCommandOption {
 	}
 
 	async run(context: Interaction.InteractionContext, args: CommandArgs) {
-		console.log(args.role);
+		if (args.name.length > 32) {
+			return context.editOrRespond({
+				content: "Iam role names must be less than 32 characters.",
+				flags: MessageFlags.EPHEMERAL,
+			});
+		}
+
+		let roles = await IAmRoles.getAll(context.guildId as string);
+
+		if (roles.length > 25) {
+			return context.editOrRespond({
+				content: "You may only have 25 iam roles.",
+				flags: MessageFlags.EPHEMERAL,
+			});
+		}
+
+		let errored = false;
+		try {
+			await IAmRoles.create(
+				args.role.id,
+				context.guildId as string,
+				args.name
+			);
+		} catch (e) {
+			errored = true;
+		}
+
+		if (errored) {
+			return context.editOrRespond({
+				content: "Failed to create iam role.",
+				flags: MessageFlags.EPHEMERAL,
+			});
+		}
+
 		return context.editOrRespond(`Created ${args.name} iam role.`);
 	}
 }

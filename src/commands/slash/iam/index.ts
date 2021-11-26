@@ -1,6 +1,7 @@
 import { Collections } from "detritus-client";
 import { BaseSlashCommand } from "../../basecommand";
 import { IAmAddCommand } from "./add";
+import { IAmSelectCommand } from "./select";
 
 export interface CommandArgs {
 	name: string;
@@ -14,7 +15,7 @@ export default class IAmGroupCommand extends BaseSlashCommand {
 
 	constructor() {
 		super({
-			options: [new IAmAddCommand()],
+			options: [new IAmAddCommand(), new IAmSelectCommand()],
 		});
 	}
 }

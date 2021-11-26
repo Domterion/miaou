@@ -27,5 +27,5 @@ model IAmRole {
         id BigInt @id @default(autoincrement())
         role String
         guild String
-        name String
+        name String @db.VarChar(100)
 }

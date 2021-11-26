@@ -57,6 +57,28 @@ export class BaseInteractionCommand<
 		});
 	}
 
+	onPermissionsFailClient(
+		context: Interaction.InteractionContext,
+		failed: FailedPermissions
+	) {
+		const permissions: Array<string> = [];
+
+		for (const permission of failed) {
+			const key = String(permission);
+			if (key in DiscordPermissions) {
+				const text = DiscordPermissions[key];
+				permissions.push(text);
+			} else {
+				permissions.push(`Unknown Permission${key}`);
+			}
+		}
+
+		return context.editOrRespond({
+			content: `Im missing permissions: ${permissions.join(", ")}`,
+			flags: MessageFlags.EPHEMERAL,
+		});
+	}
+
 	onValueError(
 		context: Interaction.InteractionContext,
 		args: Interaction.ParsedArgs,

@@ -29,11 +29,23 @@ export default class IAmRoles {
 	 */
 	static async getByName(
 		name: string,
-		guild: string,
+		guild: string
 	): Promise<IAmRole | null> {
 		return await prisma.iAmRole.findFirst({
 			where: {
 				name,
+				guild,
+			},
+		});
+	}
+
+	/**
+	 * Gets all iam roles for a guild
+	 * @param guild The guild that owns the iam role
+	 */
+	static async getAll(guild: string): Promise<IAmRole[]> {
+		return await prisma.iAmRole.findMany({
+			where: {
 				guild,
 			},
 		});

@@ -17,7 +17,7 @@ CREATE TABLE "IAmRole" (
     "id" BIGSERIAL NOT NULL,
     "role" TEXT NOT NULL,
     "guild" TEXT NOT NULL,
-    "name" TEXT NOT NULL,
+    "name" VARCHAR(100) NOT NULL,
 
     CONSTRAINT "IAmRole_pkey" PRIMARY KEY ("id")
 );
