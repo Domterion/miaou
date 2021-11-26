@@ -49,6 +49,17 @@ export class IAmAddCommand extends BaseCommandOption {
 
 		let roles = await IAmRoles.getAll(context.guildId as string);
 
+		if (
+			!!roles.find((val) => {
+				return val.name == args.name;
+			})
+		) {
+			return context.editOrRespond({
+				content: "That iam role name already exists.",
+				flags: MessageFlags.EPHEMERAL,
+			});
+		}
+
 		if (roles.length > 25) {
 			return context.editOrRespond({
 				content: "You may only have 25 iam roles.",

@@ -65,6 +65,9 @@ export class TagCreateCommand extends BaseCommandOption {
 			});
 		}
 
-		return context.editOrRespond(`Created ${args.name} tag.`);
+		return context.editOrRespond({
+			content: `Created ${args.name} tag.`,
+			flags: MessageFlags.EPHEMERAL,
+		});
 	}
 }

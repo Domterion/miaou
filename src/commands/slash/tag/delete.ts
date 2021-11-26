@@ -54,6 +54,9 @@ export class TagDeleteCommand extends BaseCommandOption {
 
 		await Tags.deleteById(tag!.id);
 
-		return context.editOrRespond(`Deleted tag.`);
+		return context.editOrRespond({
+			content: "Deleted tag.",
+			flags: MessageFlags.EPHEMERAL,
+		});
 	}
 }

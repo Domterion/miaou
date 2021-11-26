@@ -67,6 +67,9 @@ export class TagInfoCommand extends BaseCommandOption {
                              `);
 		embed.setFooter(`ID: ${tag!.id}`);
 
-		return context.editOrRespond({ embed });
+		return context.editOrRespond({
+			embed,
+			flags: MessageFlags.EPHEMERAL,
+		});
 	}
 }

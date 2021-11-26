@@ -1,4 +1,5 @@
 import { Constants, Interaction, Utils } from "detritus-client";
+import { MessageFlags } from "detritus-client/lib/constants";
 import { Member, User } from "detritus-client/lib/structures";
 const { ApplicationCommandOptionTypes } = Constants;
 const { Embed } = Utils;
@@ -34,6 +35,9 @@ export class AvatarCommand extends BaseCommandOption {
 		embed.setTitle(`Avatar for ${args.user}`);
 		embed.setImage(args.user.avatarUrl);
 
-		return context.editOrRespond({ embed });
+		return context.editOrRespond({
+			embed,
+			flags: MessageFlags.EPHEMERAL,
+		});
 	}
 }
