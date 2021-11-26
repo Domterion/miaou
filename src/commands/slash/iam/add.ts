@@ -84,6 +84,9 @@ export class IAmAddCommand extends BaseCommandOption {
 			});
 		}
 
-		return context.editOrRespond(`Created ${args.name} iam role.`);
+		return context.editOrRespond({
+			content: `Created ${args.name} iam role.`,
+			flags: MessageFlags.EPHEMERAL,
+		});
 	}
 }
