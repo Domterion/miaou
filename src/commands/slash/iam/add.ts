@@ -4,7 +4,6 @@ import {
 	MessageFlags,
 	Permissions,
 } from "detritus-client/lib/constants";
-import { FailedPermissions } from "detritus-client/lib/interaction";
 import { Role } from "detritus-client/lib/structures";
 import IAmRoles from "../../../utils/iamroles";
 
@@ -47,7 +46,7 @@ export class IAmAddCommand extends BaseCommandOption {
 			});
 		}
 
-		let roles = await IAmRoles.getAll(context.guildId as string);
+		const roles = await IAmRoles.getAll(context.guildId as string);
 
 		if (
 			!!roles.find((val) => {

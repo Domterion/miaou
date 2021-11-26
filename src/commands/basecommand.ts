@@ -1,5 +1,4 @@
 import { Constants, Interaction, Structures, Utils } from "detritus-client";
-import { Permissions } from "detritus-client/lib/constants";
 import { FailedPermissions } from "detritus-client/lib/interaction";
 import { DiscordPermissions } from "../constants";
 const { ApplicationCommandTypes, ApplicationCommandOptionTypes, MessageFlags } =

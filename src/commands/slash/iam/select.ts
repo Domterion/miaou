@@ -1,7 +1,6 @@
 import { IAmRole } from "@prisma/client";
 import { Interaction } from "detritus-client";
 import {
-	ApplicationCommandOptionTypes,
 	InteractionCallbackTypes,
 	MessageFlags,
 	Permissions,
@@ -74,7 +73,7 @@ export class IAmSelectCommand extends BaseCommandOption {
 				});
 
 				// Indicates whether or not we are removing the role
-				let removing = ctx.member?.roles.has(role!.role);
+				const removing = ctx.member?.roles.has(role!.role);
 
 				try {
 					if (removing) {
