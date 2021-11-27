@@ -15,7 +15,7 @@ export interface CommandArgs {
 	role: Role;
 }
 
-export class IAmAddCommand extends BaseCommandOption {
+export class IAmCreateCommand extends BaseCommandOption {
 	description = "Create a new iam role";
 	name = "create";
 	permissions = [Permissions.MANAGE_GUILD];
