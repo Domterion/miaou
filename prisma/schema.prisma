@@ -28,4 +28,5 @@ model IAmRole {
         role String
         guild String
         name String @db.VarChar(100)
+        description String @db.VarChar(100)
 }

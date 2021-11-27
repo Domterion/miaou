@@ -7,17 +7,20 @@ export default class IAmRoles {
 	 * @param role The id of the iam role
 	 * @param guild The guild that owns the iam role
 	 * @param name The name of the iam role
+	 * @param description The description of the iam role
 	 */
 	static async create(
 		role: string,
 		guild: string,
-		name: string
+		name: string,
+		description: string
 	): Promise<IAmRole | null> {
 		return await prisma.iAmRole.create({
 			data: {
 				role,
 				guild,
 				name,
+				description,
 			},
 		});
 	}

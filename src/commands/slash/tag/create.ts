@@ -31,14 +31,14 @@ export class TagCreateCommand extends BaseCommandOption {
 	}
 
 	async run(context: Interaction.InteractionContext, args: CommandArgs) {
-		if (args.name.length > 32) {
+		if (args.name.length >= 32) {
 			return context.editOrRespond({
 				content: "Tag names may only be upto 32 characters long.",
 				flags: MessageFlags.EPHEMERAL,
 			});
 		}
 
-		if (args.content.length > 2000) {
+		if (args.content.length >= 2000) {
 			return context.editOrRespond({
 				content: "Tag content may only be upto 2000 characters long.",
 				flags: MessageFlags.EPHEMERAL,

@@ -49,8 +49,7 @@ export class IAmSelectCommand extends BaseCommandOption {
 			options: roles!.map((val, _) => {
 				return {
 					label: val.name,
-					// TODO: Maybe iam role descriptions?? :eyes:
-					description: `IAmRole: ${val.name}`,
+					description: val.description,
 					value: val.name,
 				};
 			}),

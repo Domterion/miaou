@@ -11,6 +11,7 @@ import { BaseCommandOption } from "../../basecommand";
 
 export interface CommandArgs {
 	name: string;
+	description: string;
 	role: Role;
 }
 
@@ -29,6 +30,11 @@ export class IAmAddCommand extends BaseCommandOption {
 					required: true,
 				},
 				{
+					name: "description",
+					description: "The description for the iam role",
+					required: true,
+				},
+				{
 					name: "role",
 					description: "The role for the iam role",
 					type: ApplicationCommandOptionTypes.ROLE,
@@ -39,9 +45,17 @@ export class IAmAddCommand extends BaseCommandOption {
 	}
 
 	async run(context: Interaction.InteractionContext, args: CommandArgs) {
-		if (args.name.length > 32) {
+		if (args.name.length >= 32) {
 			return context.editOrRespond({
 				content: "Iam role names must be less than 32 characters.",
+				flags: MessageFlags.EPHEMERAL,
+			});
+		}
+
+		if (args.description.length >= 100) {
+			return context.editOrRespond({
+				content:
+					"Iam role descriptions must be less than 100 characters.",
 				flags: MessageFlags.EPHEMERAL,
 			});
 		}
@@ -59,7 +73,7 @@ export class IAmAddCommand extends BaseCommandOption {
 			});
 		}
 
-		if (roles.length > 25) {
+		if (roles.length >= 25) {
 			return context.editOrRespond({
 				content: "You may only have 25 iam roles.",
 				flags: MessageFlags.EPHEMERAL,
@@ -71,7 +85,8 @@ export class IAmAddCommand extends BaseCommandOption {
 			await IAmRoles.create(
 				args.role.id,
 				context.guildId as string,
-				args.name
+				args.name,
+				args.description
 			);
 		} catch (e) {
 			errored = true;
