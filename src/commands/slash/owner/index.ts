@@ -10,9 +10,7 @@ export default class OwnerGroupCommand extends BaseSlashCommand {
 
 	constructor() {
 		super({
-			options: [
-                new OwnerScreenshotCommand()
-			],
+			options: [new OwnerScreenshotCommand()],
 		});
 	}
 }
