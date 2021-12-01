@@ -9,6 +9,7 @@ const interactionClient = new InteractionCommandClient(process.env.TOKEN);
 // TODO: We need an implementation that respects the environment and will register commands to a guild or globals
 interactionClient.addMultipleIn("./commands");
 
+
 (async () => {
 	const client = await interactionClient.run();
 
