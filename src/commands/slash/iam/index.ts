@@ -4,10 +4,6 @@ import { IAmCreateCommand } from "./create";
 import { IAmDeleteCommand } from "./delete";
 import { IAmSelectCommand } from "./select";
 
-export interface CommandArgs {
-	name: string;
-}
-
 export default class IAmGroupCommand extends BaseSlashCommand {
 	description = ".";
 	name = "iam";

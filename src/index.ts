@@ -4,6 +4,8 @@ import { InteractionCommandClient } from "detritus-client";
 import ts from "typescript";
 import { execSync } from "child_process";
 
+import puppeteer, { FileChooser } from "puppeteer";
+
 const interactionClient = new InteractionCommandClient(process.env.TOKEN);
 
 interactionClient.addMultipleIn("./commands");

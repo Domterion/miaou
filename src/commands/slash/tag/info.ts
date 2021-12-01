@@ -57,7 +57,7 @@ export class TagInfoCommand extends BaseCommandOption {
 		const embed = new Embed();
 
 		embed.setColor(process.env.EMBED_COLOR);
-		embed.setTitle(`Info for ${tag!.name}`);
+		embed.setAuthor(`Info for ${tag!.name}`);
 		embed.setDescription(`
 **Owner**: ${tag!.owner}
 

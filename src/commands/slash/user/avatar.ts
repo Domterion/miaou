@@ -32,7 +32,7 @@ export class AvatarCommand extends BaseCommandOption {
 		const embed = new Embed();
 
 		embed.setColor(process.env.EMBED_COLOR);
-		embed.setTitle(`Avatar for ${args.user}`);
+		embed.setAuthor(`Avatar for ${args.user}`);
 		embed.setImage(args.user.avatarUrl);
 
 		return context.editOrRespond({
