@@ -7,7 +7,6 @@ import { IAmSelectCommand } from "./select";
 export default class IAmGroupCommand extends BaseSlashCommand {
 	description = ".";
 	name = "iam";
-	guildIds = new Collections.BaseSet<string>(["897619857187676210"]);
 	disableDm = true;
 
 	constructor() {
