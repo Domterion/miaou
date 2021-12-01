@@ -17,8 +17,15 @@ WORKDIR /opt/miaou
 
 COPY . .
 
+# Hacky stuff so puppeteer works
+
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
 ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
+
+RUN addgroup -S pptruser && adduser -S -g pptruser pptruser
+RUN mkdir -p /home/pptruser/Downloads /app 
+RUN chown -R pptruser:pptruser /home/pptruser
+RUN chown -R pptruser:pptruser /app
 
 RUN npm i 
 RUN npm run lint

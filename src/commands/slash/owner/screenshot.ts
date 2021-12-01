@@ -34,7 +34,9 @@ export class OwnerScreenshotCommand extends BaseCommandOption {
 
 		const startTime = performance.now()
 			
-		const browser = await puppeteer.launch();
+		const browser = await puppeteer.launch({
+			args: ["--disable-dev-shm-usage"]
+		});
 		const page = await browser.newPage();
 		await page.goto(url);
 		const buffer = await page.screenshot();
