@@ -23,9 +23,9 @@ ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
 ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
 
 RUN addgroup -S pptruser && adduser -S -g pptruser pptruser
-RUN mkdir -p /home/pptruser/Downloads /app 
+RUN mkdir -p /home/pptruser/Downloads /opt/miaou 
 RUN chown -R pptruser:pptruser /home/pptruser
-RUN chown -R pptruser:pptruser /app
+RUN chown -R pptruser:pptruser /opt/miaou
 
 RUN npm i 
 RUN npm run lint
