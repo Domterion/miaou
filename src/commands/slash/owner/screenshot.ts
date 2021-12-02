@@ -2,7 +2,7 @@ import { Interaction } from "detritus-client";
 import { BaseCommandOption } from "../../basecommand";
 import puppeteer from "puppeteer";
 import { Embed } from "detritus-client/lib/utils";
-import { InteractionCallbackTypes } from "detritus-client/lib/constants";
+import { InteractionCallbackTypes, MessageFlags } from "detritus-client/lib/constants";
 import { performance } from "perf_hooks";
 
 export interface CommandArgs {
@@ -29,6 +29,13 @@ export class OwnerScreenshotCommand extends BaseCommandOption {
 		return context.user.isClientOwner;
 	}
 
+	onCancel(context: Interaction.InteractionContext) {
+		return context.editOrRespond({
+			content: "This  is meant for owners only...",
+			flags: MessageFlags.EPHEMERAL,
+		});
+	}
+
 	async run(context: Interaction.InteractionContext, args: CommandArgs) {
 		const url = args.url.startsWith("https://") ? args.url : `https://${args.url}`;
 
@@ -39,8 +46,15 @@ export class OwnerScreenshotCommand extends BaseCommandOption {
 		});
 		const page = await browser.newPage();
 		await page.goto(url);
-		const buffer = await page.screenshot();
 
+		context.respond({
+			type: InteractionCallbackTypes.DEFERRED_CHANNEL_MESSAGE_WITH_SOURCE,
+			data: {
+				flags: MessageFlags.EPHEMERAL,
+			}
+		});
+
+		const buffer = await page.screenshot();
 		await browser.close();
 
 		const endTime = performance.now()
@@ -61,6 +75,7 @@ export class OwnerScreenshotCommand extends BaseCommandOption {
 				filename: "screenshot.png",
 				value: buffer,
 			},
+			flags: MessageFlags.EPHEMERAL,
 		});
 	}
 }
