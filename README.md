@@ -1,10 +1,11 @@
-# 🦴🤖 Miaou Bot
+<div align="center">
+    <h1>🤖 Miaou Bot</h1>
+    Miaou Bot is a Discord bot written in Typescript. The name comes from [Google Translate](https://translate.google.com/?sl=en&tl=fr&text=meow&op=translate)
+    <br>
+    <br>
+</div>
 
-<br>
-
-> Miaou Bot is a Discord bot written in Typescript. The name comes from [Google Translate](https://translate.google.com/?sl=en&tl=fr&text=meow&op=translate).
-
-### Selfhosting
+# Selfhosting
 
 We dont support selfhosting and the tooling we provide isn't guaranteed to be updated. Please use our official instance if you'd like to use Miaou. Basic instructions are provided below but are not guaranteed to be up to date.
 
@@ -33,3 +34,6 @@ To run Miaou use:
 # Run Miaou in detached mode
 $ podman run --name miaou -d miaou:latest
 ```
+
+# License
+MIT
